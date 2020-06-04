@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ymatou/common/ymt_text_style.dart';
 
-class HotWordWidget extends StatelessWidget {
+class YMTHomeHotSearchView extends StatelessWidget {
   final List<String> _hotWords = <String>[
     '苹果11',
     'switch',
@@ -44,7 +44,7 @@ class HotWordChip extends StatelessWidget {
         onPressed: () {}, 
         child: Text(
           this.hotWord,
-          style: YMTTextStyle.white_11,
+          style: white_11,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(11.0))

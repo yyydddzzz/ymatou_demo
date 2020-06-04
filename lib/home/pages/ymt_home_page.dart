@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ymatou/home/blocs/ymt_home_color_change_bloc.dart';
 import 'package:ymatou/home/widgets/ymt_home_banner.dart';
+import 'package:ymatou/home/widgets/ymt_home_category_widget.dart';
 
 class YMTHomePage extends StatelessWidget {
   @override
@@ -12,6 +13,7 @@ class YMTHomePage extends StatelessWidget {
         physics: BouncingScrollPhysics(),
         children: <Widget>[
           YMTHomeBanner(),
+          YMTHomeCategory(),
         ]
       ),
     );

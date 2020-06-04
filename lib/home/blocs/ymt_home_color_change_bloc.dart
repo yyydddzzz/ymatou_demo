@@ -8,5 +8,4 @@ class YMTHomeColorChangeBloc extends Bloc<int, int> {
   Stream<int> mapEventToState(int event) async* {
     yield event; 
   }
-  
 }

@@ -30,8 +30,7 @@ class YMTHomeBanner extends StatelessWidget {
     return BlocBuilder<YMTHomeColorChangeBloc, int>(
       builder: (context, color) {
         return Container(
-          color: Colors.green,
-          height: 200,
+          height: 160,
           child: Stack(
             children: <Widget>[
               Container(
@@ -41,19 +40,19 @@ class YMTHomeBanner extends StatelessWidget {
                   borderRadius: BorderRadius.only(bottomLeft: Radius.circular(40), bottomRight: Radius.circular(40))
                 ),
               ),
-              HotWordWidget(),
+              YMTHomeHotSearchView(),
               Positioned(
-                top: 55.0,
-                left: 30.0,
+                top: 30.0,
+                left: 15.0,
                 child: Container(
-                  width: 300.0,
-                  height: 110.0,
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 120.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   clipBehavior: Clip.hardEdge,
                   child: Swiper(
-                    itemCount: 3,
+                    itemCount: _bannerPic.length,
                     itemBuilder: (context, index) {
                       return Image.network(
                         _bannerPic[index],

@@ -12,7 +12,7 @@ class YMTHomeAppBar {
     return AppBar(
       elevation: 0.0,
       leading: FlatButton(
-        child: Image.asset(AssetsPath.ic_home_white_classify),
+        child: Image.asset(ic_home_white_classify),
         onPressed: () {},
       ),
       actions: <Widget>[
@@ -20,7 +20,7 @@ class YMTHomeAppBar {
           width: 60.0,
           height: 60.0,
           child: FlatButton(
-            child: Image.asset(AssetsPath.ic_home_white_msg),
+            child: Image.asset(ic_home_white_msg),
             onPressed: () {},
           )
         )
@@ -30,9 +30,9 @@ class YMTHomeAppBar {
         labelPadding: EdgeInsets.only(left: 0),
         label: Text(
           '苹果11' + blanks,
-          style: YMTTextStyle.light_grey_12,
+          style: light_grey_12,
         ),
-        avatar: Image.asset(AssetsPath.ic_home_search_grey, height: 16, width: 16,),
+        avatar: Image.asset(ic_home_search_grey, height: 16, width: 16,),
         onPressed: () {
           print('Search');
         },

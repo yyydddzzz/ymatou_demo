@@ -38,6 +38,14 @@ class YMTBottomTabBar extends StatelessWidget {
             return pages[index];
           },
         ),
+        floatingActionButton: Theme(
+          data: Theme.of(context).copyWith(primaryColor: Colors.transparent),
+          child: FloatingActionButton(
+            shape: Border(),
+            onPressed: () {},
+            child: Image.network('http://pic1.ymatou.com/G02/M04/6E/1B/CgzUCl1KhiSAev0sAAB0GUKEWxw572.png', fit: BoxFit.cover,),
+          ),
+        ),
         bottomNavigationBar: BlocBuilder<TabBarBloc, int>(
           builder: (context, index) {
             return BottomNavigationBar(
@@ -49,28 +57,28 @@ class YMTBottomTabBar extends StatelessWidget {
               items: [
                 BottomNavigationBarItem(
                   title: Container(),
-                  icon: Image.asset(AssetsPath.icon_tab_home),
-                  activeIcon: Image.asset(AssetsPath.icon_tab_home_sel),
+                  icon: Image.asset(icon_tab_home),
+                  activeIcon: Image.asset(icon_tab_home_sel),
                 ),
                 BottomNavigationBarItem(
                   title: Container(),
-                  icon: Image.asset(AssetsPath.icon_tab_live),
-                  activeIcon: Image.asset(AssetsPath.icon_tab_live_sel),
+                  icon: Image.asset(icon_tab_live),
+                  activeIcon: Image.asset(icon_tab_live_sel),
                 ),
                 BottomNavigationBarItem(
                   title: Container(),
-                  icon: Image.asset(AssetsPath.icon_tab_htq),
-                  activeIcon: Image.asset(AssetsPath.icon_tab_htq_sel),
+                  icon: Image.asset(icon_tab_htq),
+                  activeIcon: Image.asset(icon_tab_htq_sel),
                 ),
                 BottomNavigationBarItem(
                   title: Container(),
-                  icon: Image.asset(AssetsPath.icon_tab_cart),
-                  activeIcon: Image.asset(AssetsPath.icon_tab_cart_sel),
+                  icon: Image.asset(icon_tab_cart),
+                  activeIcon: Image.asset(icon_tab_cart_sel),
                 ),
                 BottomNavigationBarItem(
                   title: Container(),
-                  icon: Image.asset(AssetsPath.icon_tab_mine),
-                  activeIcon: Image.asset(AssetsPath.icon_tab_mine_sel),
+                  icon: Image.asset(icon_tab_mine),
+                  activeIcon: Image.asset(icon_tab_mine_sel),
                 ),
               ],
             );
