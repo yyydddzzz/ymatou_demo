@@ -1,6 +1,16 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/cupertino.dart';
 
-class TabBarBloc extends Bloc<int, int> {
+class YMTTabBarState {
+  final bool removeOverlay;
+  final int pageIndex;
+
+  YMTTabBarState(this.removeOverlay, this.pageIndex);
+  
+  // YMTTabBarState.;
+}
+
+class YMTTabBarBloc extends Bloc<int, int> {
   @override
   int get initialState => 0;
 

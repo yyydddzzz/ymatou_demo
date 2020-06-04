@@ -12,7 +12,29 @@ import 'package:ymatou/live/pages/ymt_live_page.dart';
 import 'package:ymatou/cart/pages/ymt_cart_page.dart';
 import 'package:ymatou/my/pages/ymt_my_page.dart';
 
-class YMTBottomTabBar extends StatelessWidget {
+class YMTBottomTabBar extends StatefulWidget {
+  YMTBottomTabBar({Key key}) : super(key: key);
+
+  @override
+  _YMTBottomTabBarState createState() => _YMTBottomTabBarState();
+}
+
+class _YMTBottomTabBarState extends State<YMTBottomTabBar> with AutomaticKeepAliveClientMixin {
+  @override
+  void initState() {
+    super.initState();
+    print('YMTHomePage');
+    Future.delayed(Duration(milliseconds: 300)).then((value) {
+      Overlay.of(context).insert(_overlay);
+    });
+  }
+
+  @override
+  void dispose() {
+    _overlay.remove();
+    super.dispose();
+  }
+
   final List pages = [
     YMTHomePage(),
     YMTLivePage(),
@@ -20,12 +42,29 @@ class YMTBottomTabBar extends StatelessWidget {
     YMTCartPage(),
     YMTMyPage()
   ];
+
+  final OverlayEntry _overlay = OverlayEntry(
+    builder: (context) => Positioned(
+      top: MediaQuery.of(context).size.height * 0.8,
+      right: 16.0,
+      child: GestureDetector(
+        onTap: () { print('GestureDetector'); },
+        child: Container(
+          width: 60.0,
+          height: 60.0,
+          child: Image.network('http://pic1.ymatou.com/G02/M04/6E/1B/CgzUCl1KhiSAev0sAAB0GUKEWxw572.png', fit: BoxFit.cover,)
+        ),
+      )
+    )
+  );
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return MultiBlocProvider(
       providers: [
-        BlocProvider<TabBarBloc>(
-          create: (BuildContext context) => TabBarBloc(),
+        BlocProvider<YMTTabBarBloc>(
+          create: (BuildContext context) => YMTTabBarBloc(),
         ),
         BlocProvider<YMTHomeColorChangeBloc>(
           create: (BuildContext context) => YMTHomeColorChangeBloc(),
@@ -33,26 +72,18 @@ class YMTBottomTabBar extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: YMTHomeAppBar(context).appBar,
-        body: BlocBuilder<TabBarBloc, int>(
+        body: BlocBuilder<YMTTabBarBloc, int>(
           builder: (context, index) {
             return pages[index];
           },
         ),
-        floatingActionButton: Theme(
-          data: Theme.of(context).copyWith(primaryColor: Colors.transparent),
-          child: FloatingActionButton(
-            shape: Border(),
-            onPressed: () {},
-            child: Image.network('http://pic1.ymatou.com/G02/M04/6E/1B/CgzUCl1KhiSAev0sAAB0GUKEWxw572.png', fit: BoxFit.cover,),
-          ),
-        ),
-        bottomNavigationBar: BlocBuilder<TabBarBloc, int>(
+        bottomNavigationBar: BlocBuilder<YMTTabBarBloc, int>(
           builder: (context, index) {
             return BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
               currentIndex: index,
               onTap: (int index) {
-                BlocProvider.of<TabBarBloc>(context).add(index);
+                BlocProvider.of<YMTTabBarBloc>(context).add(index);
               },
               items: [
                 BottomNavigationBarItem(
@@ -87,4 +118,7 @@ class YMTBottomTabBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

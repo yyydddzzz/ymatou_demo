@@ -4,6 +4,7 @@ class YMTHomeCategoryModel {
   final int type;
   final String url;
   final int id;
+
   YMTHomeCategoryModel({
     this.name,
     this.pic,
@@ -11,4 +12,11 @@ class YMTHomeCategoryModel {
     this.url,
     this.id
   });
+
+  YMTHomeCategoryModel.fromJson(Map<String, dynamic> json) 
+    : name = json['name'],
+      pic = json['pic'],
+      type = json['type'],
+      url = json['url'],
+      id = json['id'];
 }
