@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ymatou/common/ymt_asset_path.dart';
 
 import 'package:ymatou/common/bottom_tab_bar/blocs/ymt_tab_bar_bloc.dart';
-import 'package:ymatou/home/blocs/ymt_home_color_change_bloc.dart';
 
 import 'package:ymatou/home/pages/ymt_home_page.dart';
-import 'package:ymatou/home/widgets/ymt_home_app_bar.dart';
 import 'package:ymatou/htq/pages/ymt_htq_page.dart';
 import 'package:ymatou/live/pages/ymt_live_page.dart';
 import 'package:ymatou/cart/pages/ymt_cart_page.dart';
@@ -24,7 +21,7 @@ class _YMTBottomTabBarState extends State<YMTBottomTabBar> with AutomaticKeepAli
   void initState() {
     super.initState();
     print('YMTHomePage');
-    Future.delayed(Duration(milliseconds: 300)).then((value) {
+    Future.delayed(Duration(milliseconds: 100)).then((value) {
       Overlay.of(context).insert(_overlay);
     });
   }
@@ -35,7 +32,7 @@ class _YMTBottomTabBarState extends State<YMTBottomTabBar> with AutomaticKeepAli
     super.dispose();
   }
 
-  final List pages = [
+  final List _pages = [
     YMTHomePage(),
     YMTLivePage(),
     YMTHtqPage(),
@@ -66,55 +63,9 @@ class _YMTBottomTabBarState extends State<YMTBottomTabBar> with AutomaticKeepAli
         BlocProvider<YMTTabBarBloc>(
           create: (BuildContext context) => YMTTabBarBloc(),
         ),
-        BlocProvider<YMTHomeColorChangeBloc>(
-          create: (BuildContext context) => YMTHomeColorChangeBloc(),
-        ),
       ],
-      child: Scaffold(
-        appBar: YMTHomeAppBar(context).appBar,
-        body: BlocBuilder<YMTTabBarBloc, int>(
-          builder: (context, index) {
-            return pages[index];
-          },
-        ),
-        bottomNavigationBar: BlocBuilder<YMTTabBarBloc, int>(
-          builder: (context, index) {
-            return BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: index,
-              onTap: (int index) {
-                BlocProvider.of<YMTTabBarBloc>(context).add(index);
-              },
-              items: [
-                BottomNavigationBarItem(
-                  title: Container(),
-                  icon: Image.asset(icon_tab_home),
-                  activeIcon: Image.asset(icon_tab_home_sel),
-                ),
-                BottomNavigationBarItem(
-                  title: Container(),
-                  icon: Image.asset(icon_tab_live),
-                  activeIcon: Image.asset(icon_tab_live_sel),
-                ),
-                BottomNavigationBarItem(
-                  title: Container(),
-                  icon: Image.asset(icon_tab_htq),
-                  activeIcon: Image.asset(icon_tab_htq_sel),
-                ),
-                BottomNavigationBarItem(
-                  title: Container(),
-                  icon: Image.asset(icon_tab_cart),
-                  activeIcon: Image.asset(icon_tab_cart_sel),
-                ),
-                BottomNavigationBarItem(
-                  title: Container(),
-                  icon: Image.asset(icon_tab_mine),
-                  activeIcon: Image.asset(icon_tab_mine_sel),
-                ),
-              ],
-            );
-          }
-        )
+      child: BlocBuilder<YMTTabBarBloc, int>(
+        builder: (context, index) => _pages[index],
       ),
     );
   }

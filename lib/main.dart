@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           buttonTheme: ButtonThemeData(
             minWidth: 0,
-            padding: EdgeInsets.only(left: 12, top: 0, right: 12, bottom: 0)
+            padding: EdgeInsets.only(left: 12, top: 0, right: 12, bottom: 0),
           ),
           primarySwatch: Colors.red,
           visualDensity: VisualDensity.adaptivePlatformDensity,
