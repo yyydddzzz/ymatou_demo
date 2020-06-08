@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ymatou/common/ymt_text_style.dart';
+import 'package:ymatou/common/ymt_asset_path.dart';
 
 class YMTHomeBenefitsWidget extends StatelessWidget {
   @override
@@ -8,7 +9,7 @@ class YMTHomeBenefitsWidget extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(left: 16, right: 16),
+            padding: EdgeInsets.all(16.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -19,27 +20,30 @@ class YMTHomeBenefitsWidget extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     Label(
-                      icon: Icon(Icons.chat),
+                      icon: Image.asset(home_newbie_welfare_icon1),
                       text: Text(
                         '包邮包税',
                         style: red_10,
                       ),
-                      tailSpacing: 8,
+                      spacing: 6,
+                      tailSpacing: 12,
                     ),
                     Label(
-                      icon: Icon(Icons.chat),
+                      icon: Image.asset(home_newbie_welfare_icon2),
                       text: Text(
                         '新人专享',
                         style: red_10,
                       ),
-                      tailSpacing: 8,
+                      spacing: 6,
+                      tailSpacing: 12,
                     ),
                     Label(
-                      icon: Icon(Icons.chat),
+                      icon: Image.asset(home_newbie_welfare_icon3),
                       text: Text(
                         '无门槛券',
                         style: red_10,
                       ),
+                      spacing: 6,
                     )
                   ],
                 )
@@ -54,7 +58,7 @@ class YMTHomeBenefitsWidget extends StatelessWidget {
 
 class Label extends StatelessWidget {
   final Text text;
-  final Icon icon;
+  final Image icon;
   final double spacing;
   final double tailSpacing;
 
