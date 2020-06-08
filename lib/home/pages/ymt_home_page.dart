@@ -9,6 +9,7 @@ import 'package:ymatou/home/repositories/ymt_home_data_repository.dart';
 import 'package:ymatou/home/states/ymt_home_data_state.dart';
 
 import 'package:ymatou/home/widgets/ymt_home_banner.dart';
+import 'package:ymatou/home/widgets/ymt_home_benefits_widget.dart';
 import 'package:ymatou/home/widgets/ymt_home_category_widget.dart';
 
 import 'package:ymatou/common/ymt_asset_path.dart';
@@ -32,8 +33,8 @@ class YMTHomePage extends StatelessWidget {
                   leading: FlatButton(
                     child: Image.asset(ic_home_white_classify),
                     onPressed: () async {
-                      YMTHomeDataModel ymtHomeDataModel = await YMTHomeDataRepository().fetchData();
-                      print(ymtHomeDataModel.ab.preloadingCount);
+                      // YMTHomeDataModel ymtHomeDataModel = await YMTHomeDataRepository().fetchData();
+                      // print(ymtHomeDataModel.ab.preloadingCount);
                     },
                   ),
                   actions: <Widget>[
@@ -64,6 +65,7 @@ class YMTHomePage extends StatelessWidget {
                   children: <Widget>[
                     YMTHomeBanner(),
                     YMTHomeCategory(),
+                    YMTHomeBenefitsWidget(),
                   ]
                 ),
                 bottomNavigationBar: BlocBuilder<YMTTabBarBloc, int>(

@@ -19,3 +19,14 @@ const TextStyle black_11 = TextStyle(
     fontSize: 11,
     color: Colors.black54,
 );
+
+const TextStyle black_18_w600 = TextStyle(
+    fontSize: 18,
+    color: Colors.black,
+    fontWeight: FontWeight.w600
+);
+
+const TextStyle red_10 = TextStyle(
+    fontSize: 10,
+    color: Colors.red,
+);

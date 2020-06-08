@@ -36,20 +36,22 @@ class YMTHttpManager {
   }
   
   get(String path, {Map<String, dynamic> query}) async {
+    Response response;
     try {
-      Response response = await _dio.get(path, queryParameters: query);
-      return response;
+      response = await _dio.get(path, queryParameters: query);
     } on DioError catch(e) {
       print(e);
     }
+    return response;
   }
 
   post(String path, {Map<String, dynamic> query}) async {
+    Response response;
     try {
-      Response response = await _dio.post(path, queryParameters: query);
-      return response;
+      response = await _dio.post(path, queryParameters: query);
     } on DioError catch(e) {
       print(e);
     }
+    return response;
   }
 }

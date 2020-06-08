@@ -40,7 +40,14 @@ class YMTInitializationPage extends StatelessWidget {
                 ],
               );
             }
-            return Center(child: Text('YMT'),);
+            return Center(
+              child: FlatButton(
+                onPressed: () {
+                  BlocProvider.of<YMTEnterHomePageBloc>(context).add(0);
+                },
+                child: Text('进入首页'),
+              )
+            );
           },
         ),
       ),

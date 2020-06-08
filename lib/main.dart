@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<YMTAdBloc>(context).add(0);
+    // BlocProvider.of<YMTAdBloc>(context).add(0);
   }
 
   @override
