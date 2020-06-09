@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ymatou/common/bottom_tab_bar/blocs/ymt_application_bloc.dart';
-import 'package:ymatou/common/bottom_tab_bar/blocs/ymt_enter_home_page_bloc.dart';
+import 'package:ymatou/common/bottom_tab_bar/blocs/ymt_splash_bloc.dart';
+import 'package:ymatou/common/ymt_bloc_delegate.dart';
 
 import 'package:ymatou/common/ymt_device_info.dart';
-import 'package:ymatou/common/ymt_initialization_page.dart';
+import 'package:ymatou/common/ymt_splash_page.dart';
 import 'package:ymatou/common/ymt_routes.dart';
 
-void main() {
+void main() async {
+  BlocSupervisor.delegate = YMTBlocDelegate();
+  WidgetsFlutterBinding.ensureInitialized();
+  await YMTDeviceInfo().initPlatformState();
   runApp(
     MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => YMTInitBloc(),
-        ),
-        BlocProvider(
           create: (context) => YMTAdBloc(),
         )
       ],
-      child: MyApp(),
+      child: YMTApp(),
     )
   );
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({Key key}) : super(key: key);
+class YMTApp extends StatefulWidget {
+  YMTApp({Key key}) : super(key: key);
 
   @override
-  _MyAppState createState() => _MyAppState();
+  _YMTAppState createState() => _YMTAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _YMTAppState extends State<YMTApp> {
 
   @override
   void initState() {
     super.initState();
-    // BlocProvider.of<YMTAdBloc>(context).add(0);
+    BlocProvider.of<YMTAdBloc>(context).add(0);
+    print(YMTDeviceInfo.deviceData['model']);
   }
 
   @override
@@ -51,7 +52,7 @@ class _MyAppState extends State<MyApp> {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: routes,
-      home: YMTInitializationPage(),
+      home: YMTSplashPage(),
     );
   }
 }

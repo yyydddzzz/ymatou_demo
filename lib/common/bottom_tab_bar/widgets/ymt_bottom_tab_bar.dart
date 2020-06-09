@@ -21,9 +21,9 @@ class _YMTBottomTabBarState extends State<YMTBottomTabBar> with AutomaticKeepAli
   void initState() {
     super.initState();
     print('YMTHomePage');
-    Future.delayed(Duration(milliseconds: 100)).then((value) {
-      Overlay.of(context).insert(_overlay);
-    });
+    // Future.delayed(Duration(milliseconds: 100)).then((value) {
+    //   Overlay.of(context).insert(_overlay);
+    // });
   }
 
   @override

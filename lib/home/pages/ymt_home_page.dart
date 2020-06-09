@@ -5,7 +5,7 @@ import 'package:ymatou/common/bottom_tab_bar/blocs/ymt_tab_bar_bloc.dart';
 import 'package:ymatou/home/blocs/ymt_home_color_change_bloc.dart';
 import 'package:ymatou/home/blocs/ymt_home_data_bloc.dart';
 import 'package:ymatou/home/models/ymt_home_data_model.dart';
-import 'package:ymatou/home/repositories/ymt_home_data_repository.dart';
+import 'package:ymatou/home/repositories/ymt_home_repository.dart';
 import 'package:ymatou/home/states/ymt_home_data_state.dart';
 
 import 'package:ymatou/home/widgets/ymt_home_banner.dart';

@@ -50,6 +50,35 @@ class YMTHomeBenefitsWidget extends StatelessWidget {
               ],
             ),
           ),
+          Image.network('http://pic1.ymatou.com/G03/M05/43/44/CgzUH17KbGWAO5ZkAAChp229VYw422_750_91_o.png'),
+          Row(
+            children: <Widget>[
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                child: Image.network('http://pic1.ymatou.com/G03/M03/43/42/CgzUIV7KbKmAb-hcAABBiXXoOtw759_50_41_o.png'),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                child: Image.network('http://pic1.ymatou.com/G03/M03/43/43/CgzUIV7KbKyAbC7GAABHicFMp90747_50_41_o.png'),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 3,
+                child: Image.network('http://pic1.ymatou.com/G03/M03/43/43/CgzUIV7KbLCAUM9EAABXOsr1SzQ101_50_41_o.gif'),
+              ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Container(
+                width: MediaQuery.of(context).size.width / 2,
+                child: Image.network('http://pic1.ymatou.com/G03/M05/17/5C/CgzUIV7UgMqAIyRZAABiL3-HL10860_375_236_o.gif'),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width / 2,
+                child: Image.network('http://pic1.ymatou.com/G03/M03/43/29/CgzUH17XH42AD_rgAAFFNQiNGqM392_375_236_o.gif'),
+              ),
+            ],
+          ),
         ],
       ),
     );
