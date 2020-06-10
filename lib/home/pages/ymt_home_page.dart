@@ -79,7 +79,7 @@ class _YMTHomePageState extends State<YMTHomePage> {
                     physics: BouncingScrollPhysics(),
                     children: <Widget>[
                       YMTHomeBanner(bannerList: homeModel.banner.bannerList),
-                      YMTHomeCategory(),
+                      YMTHomeCategory(categoryList: homeModel.subChannel,),
                       YMTHomeBenefitsWidget(),
                     ]
                   ),

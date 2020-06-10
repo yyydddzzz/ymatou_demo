@@ -2,17 +2,25 @@ class YMTHomeDataModel {
   final Ab ab;
   final Banner banner;
   final NewComer newComer;
+  final List<SubChannel> subChannel;
 
-  YMTHomeDataModel({this.ab, this.banner, this.newComer});
+  YMTHomeDataModel({this.ab, this.banner, this.newComer, this.subChannel});
 
   factory YMTHomeDataModel.fromJson(Map<String, dynamic> json) {
     Ab ab = Ab.fromJson(json['ab']);
     Banner banner = Banner.fromJson(json['banner']);
     NewComer newComer = NewComer.fromJson(json['newComer']);
+    List<SubChannel> subChannel = List<SubChannel>();
+    if (json['subChannel'] != null) {
+      (json['subChannel'] as List).forEach((v) {
+        subChannel.add(SubChannel.fromJson(v));
+      });
+    }
     return YMTHomeDataModel(
       ab: ab,
       banner: banner,
-      newComer: newComer
+      newComer: newComer,
+      subChannel: subChannel
     );
   }
 }
@@ -111,7 +119,7 @@ class BannerList {
     String shareLink = json['shareLink'];
     String url = json['url'];
     String href = json['href'];
-    String backColor = json['backColor'];
+    String backColor = json['backColor'] ?? 'd1303e';
     return BannerList(
       bannerId: bannerId,
       type: type,
@@ -230,4 +238,27 @@ class MainBanner {
     data['url'] = this.url;
     return data;
   }
+}
+
+class SubChannel {
+  final String name;
+  final String pic;
+  final int type;
+  final String url;
+  final int id;
+
+  SubChannel({
+    this.name,
+    this.pic,
+    this.type,
+    this.url,
+    this.id
+  });
+
+  SubChannel.fromJson(Map<String, dynamic> json) 
+    : name = json['name'],
+      pic = json['pic'],
+      type = json['type'],
+      url = json['url'],
+      id = json['id'];
 }
