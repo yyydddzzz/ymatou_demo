@@ -20,7 +20,7 @@ class YMTAdBloc extends Bloc<int, AdState> {
 
   @override
   Stream<AdState> mapEventToState(event) async* {
-    YMTAdModel adModel = await YMTAdRepository().fetchData();
-    yield AdLoaded(adModel: adModel);
+    YMTAdModel model = await YMTAdRepository().fetchData();
+    yield AdLoaded(adModel: model);
   }
 }

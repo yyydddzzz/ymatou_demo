@@ -1,16 +1,16 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
-class YMTHomeColorChangeBloc extends Bloc<int, int> {
-  final int color;
+class YMTHomeColorChangeBloc extends Bloc<String, String> {
+  final String color;
 
   YMTHomeColorChangeBloc({@required this.color});
 
   @override
-  get initialState => color;
+  String get initialState => color;
 
   @override
-  Stream<int> mapEventToState(int event) async* {
+  Stream<String> mapEventToState(String event) async* {
     yield event; 
   }
 }

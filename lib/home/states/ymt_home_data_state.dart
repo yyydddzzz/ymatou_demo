@@ -8,20 +8,20 @@ abstract class YMTHomeDataState extends Equatable {
   List<Object> get props => [];
 }
 
-class YMTHomeDataUninitialized extends YMTHomeDataState {}
+class YMTHomeDataEmpty extends YMTHomeDataState {}
 
 class YMTHomeDataError extends YMTHomeDataState {}
 
 class YMTHomeDataLoaded extends YMTHomeDataState {
-  final YMTHomeDataModel mdoel;
+  final YMTHomeDataModel model;
 
   const YMTHomeDataLoaded({
-    this.mdoel,
+    this.model,
   });
 
-  YMTHomeDataLoaded copyWith({YMTHomeDataModel mdoel}) {
+  YMTHomeDataLoaded copyWith({YMTHomeDataModel model}) {
     return YMTHomeDataLoaded(
-      mdoel: mdoel ?? this.mdoel,
+      model: model ?? this.model,
     );
   }
 }
