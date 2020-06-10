@@ -70,6 +70,8 @@ flutter:
     - assets/home_app_bar/ic_home_white_classify.png
     - assets/home_app_bar/ic_home_white_msg.png
     - assets/home_app_bar/ic_home_search_grey.png
+    - assets/home_app_bar/svg_black_back.png
+    - assets/home_search_bar/ic_cart_delete.png
     - assets/home_newbie_welfare/home_newbie_welfare_icon1.png
     - assets/home_newbie_welfare/home_newbie_welfare_icon2.png
     - assets/home_newbie_welfare/home_newbie_welfare_icon3.png

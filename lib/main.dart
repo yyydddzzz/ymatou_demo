@@ -47,11 +47,14 @@ class _YMTAppState extends State<YMTApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: Colors.white,
         buttonTheme: ButtonThemeData(
           minWidth: 0,
           padding: EdgeInsets.only(left: 12, top: 0, right: 12, bottom: 0),
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
         ),
-        primarySwatch: Colors.red,
+        // primarySwatch: Colors.red,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: routes,

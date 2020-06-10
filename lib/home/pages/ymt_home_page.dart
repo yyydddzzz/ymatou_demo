@@ -6,6 +6,7 @@ import 'package:ymatou/common/bottom_tab_bar/blocs/ymt_tab_bar_bloc.dart';
 import 'package:ymatou/home/blocs/ymt_home_color_change_bloc.dart';
 import 'package:ymatou/home/blocs/ymt_home_data_bloc.dart';
 import 'package:ymatou/home/models/ymt_home_data_model.dart';
+import 'package:ymatou/home/pages/ymt_home_search_page.dart';
 import 'package:ymatou/home/states/ymt_home_data_state.dart';
 
 import 'package:ymatou/home/widgets/ymt_home_banner.dart';
@@ -58,7 +59,9 @@ class _YMTHomePageState extends State<YMTHomePage> {
                         height: 60.0,
                         child: FlatButton(
                           child: Image.asset(ic_home_white_msg),
-                          onPressed: () {},
+                          onPressed: () {
+                            
+                          },
                         )
                       )
                     ],
@@ -71,7 +74,7 @@ class _YMTHomePageState extends State<YMTHomePage> {
                       ),
                       avatar: Image.asset(ic_home_search_grey, height: 16, width: 16,),
                       onPressed: () {
-                        print('Search');
+                        showSearch(context: context, delegate: YMTSeachBarDelegate(searchFieldLabel: '香奈儿coco口红'));
                       },
                     ),
                   ),

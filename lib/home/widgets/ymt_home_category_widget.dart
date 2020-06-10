@@ -44,7 +44,7 @@ class YMTHomeCategoryItem extends StatelessWidget {
             SizedBox(height: 2,),
             Text(
               category.name,
-              style: black_11,
+              style: black54_11,
             ),
           ],
         ),

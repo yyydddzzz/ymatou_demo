@@ -15,9 +15,14 @@ const TextStyle white_10 = TextStyle(
     color: Colors.white,
 );
 
-const TextStyle black_11 = TextStyle(
+const TextStyle black54_11 = TextStyle(
     fontSize: 11,
     color: Colors.black54,
+);
+
+const TextStyle black87_13 = TextStyle(
+    fontSize: 13,
+    color: Colors.black87,
 );
 
 const TextStyle black_18_w600 = TextStyle(
@@ -29,4 +34,15 @@ const TextStyle black_18_w600 = TextStyle(
 const TextStyle red_10 = TextStyle(
     fontSize: 10,
     color: Colors.red,
+);
+
+const TextStyle red_16_w600 = TextStyle(
+    fontSize: 16,
+    color: Colors.red,
+    fontWeight: FontWeight.w600
+);
+
+const TextStyle light_grey_15 = TextStyle(
+    fontSize: 15,
+    color: Color(0xff9f9f9f),
 );
