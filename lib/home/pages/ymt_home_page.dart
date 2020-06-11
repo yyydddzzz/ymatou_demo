@@ -86,7 +86,7 @@ class _YMTHomePageState extends State<YMTHomePage> {
                       YMTHomeCategory(categoryList: homeModel.subChannel,),
                       YMTHomeBenefitsWidget(),
                       Image.network(homeModel.advertisement.first.picUrl),
-                      YMTFlashSaleWidget(),
+                      YMTFlashSaleWidget(flashSale: homeModel.flashSale,),
                     ]
                   ),
                   bottomNavigationBar: BlocBuilder<YMTTabBarBloc, int>(

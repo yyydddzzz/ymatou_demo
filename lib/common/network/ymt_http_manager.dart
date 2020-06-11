@@ -27,7 +27,7 @@ class YMTHttpManager {
     _dio = Dio(options);
     (_dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate  = (client) {
       client.findProxy = (uri) {
-        return 'PROXY 192.168.1.102:8888';
+        return 'PROXY 192.168.1.103:8888';
       };
       client.badCertificateCallback = (X509Certificate cert, String host, int port){
           return true;

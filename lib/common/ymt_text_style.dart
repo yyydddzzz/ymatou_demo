@@ -20,8 +20,8 @@ const TextStyle white_10 = TextStyle(
     color: Colors.white,
 );
 
-const TextStyle white_13_w600 = TextStyle(
-    fontSize: 13,
+const TextStyle white_12_w600 = TextStyle(
+    fontSize: 12,
     color: Colors.white,
     fontWeight: FontWeight.w600
 );

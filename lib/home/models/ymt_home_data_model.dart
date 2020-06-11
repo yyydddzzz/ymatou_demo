@@ -4,8 +4,9 @@ class YMTHomeDataModel {
   final NewComer newComer;
   final List<SubChannel> subChannel;
   final List<Advertisement> advertisement;
+  final FlashSale flashSale;
 
-  YMTHomeDataModel({this.ab, this.banner, this.newComer, this.subChannel, this.advertisement});
+  YMTHomeDataModel({this.ab, this.banner, this.newComer, this.subChannel, this.advertisement, this.flashSale});
 
   factory YMTHomeDataModel.fromJson(Map<String, dynamic> json) {
     Ab ab = Ab.fromJson(json['ab']);
@@ -23,12 +24,14 @@ class YMTHomeDataModel {
         advertisement.add(Advertisement.fromJson(v));
       });
     }
+    FlashSale flashSale = FlashSale.fromJson(json['flashSale']);
     return YMTHomeDataModel(
       ab: ab,
       banner: banner,
       newComer: newComer,
       subChannel: subChannel,
-      advertisement: advertisement
+      advertisement: advertisement,
+      flashSale: flashSale
     );
   }
 }
@@ -274,4 +277,90 @@ class Advertisement {
       picUrl = json['picUrl'],
       type = json['type'],
       url = json['url'];
+}
+
+class FlashSale {
+  final List<Panic> panic;
+  final int endtime;
+  final String timeDesc;
+  final String nextUrl;
+
+  FlashSale({this.panic, this.endtime, this.timeDesc, this.nextUrl});
+
+  factory FlashSale.fromJson(Map<String, dynamic> json) {
+    List<Panic> panic = List<Panic>();
+    if (json['panic'] != null) {
+      json['panic'].forEach((v) {
+        panic.add(Panic.fromJson(v));
+      });
+    }
+    int endtime = json['endtime'];
+    String timeDesc = json['timeDesc'];
+    String nextUrl = json['nextUrl'];
+    return FlashSale(
+      panic: panic,
+      endtime: endtime,
+      timeDesc: timeDesc,
+      nextUrl: nextUrl
+    );
+  }
+}
+
+class Panic {
+  int endtime;
+  String begintime;
+  String href;
+  String id;
+  String pic;
+  int type;
+  String brandName;
+  String stockLabel;
+  int marketPrice;
+  int stockType;
+  String sellingPoint;
+  String countryFlag;
+  int price;
+  String pordPic;
+  int tradingSpecial;
+  String name;
+  String activityName;
+
+  Panic(
+      {this.endtime,
+      this.begintime,
+      this.href,
+      this.id,
+      this.pic,
+      this.type,
+      this.brandName,
+      this.stockLabel,
+      this.marketPrice,
+      this.stockType,
+      this.sellingPoint,
+      this.countryFlag,
+      this.price,
+      this.pordPic,
+      this.tradingSpecial,
+      this.name,
+      this.activityName});
+
+  Panic.fromJson(Map<String, dynamic> json) {
+    endtime = json['endtime'];
+    begintime = json['begintime'];
+    href = json['href'];
+    id = json['id'];
+    pic = json['pic'];
+    type = json['type'];
+    brandName = json['brandName'];
+    stockLabel = json['stockLabel'];
+    marketPrice = json['marketPrice'];
+    stockType = json['stockType'];
+    sellingPoint = json['sellingPoint'];
+    countryFlag = json['countryFlag'];
+    price = json['price'];
+    pordPic = json['pordPic'];
+    tradingSpecial = json['tradingSpecial'];
+    name = json['name'];
+    activityName = json['activityName'];
+  }
 }

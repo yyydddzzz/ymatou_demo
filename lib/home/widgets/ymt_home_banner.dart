@@ -49,7 +49,7 @@ class YMTHomeBanner extends StatelessWidget {
                     },
                     onIndexChanged: (index) {
                       BannerList item = bannerList[index];
-                      BlocProvider.of<YMTHomeColorChangeBloc>(context).add(item.backColor);
+                      // BlocProvider.of<YMTHomeColorChangeBloc>(context).add(item.backColor);
                     },
                   ),
                 ),
