@@ -4,7 +4,7 @@ class YMTBlocDelegate extends BlocDelegate {
   @override
   void onEvent(Bloc bloc, Object event) {
     super.onEvent(bloc, event);
-
+    // print(event);
   }
 
   @override

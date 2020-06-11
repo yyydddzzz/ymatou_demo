@@ -11,6 +11,6 @@ class YMTHomeColorChangeBloc extends Bloc<String, String> {
 
   @override
   Stream<String> mapEventToState(String event) async* {
-    yield event; 
+    yield event.replaceAll(' ', '');
   }
 }

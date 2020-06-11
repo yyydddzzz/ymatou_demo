@@ -1,16 +1,11 @@
 import 'dart:ui';
 
-extension HexColor on Color {
-  static Color fromHex(String hexString) {
-    final buffer = StringBuffer();
-    if (hexString.length == 6 || hexString.length == 7) buffer.write('ff');
-    buffer.write(hexString.replaceFirst('#', ''));
-    return Color(int.parse(buffer.toString(), radix: 16));
+class ColorsUtil {
+  static Color hexToColor(String s) {
+    if (s == null || s.length != 7 ||
+        int.tryParse(s.substring(1, 7), radix: 16) == null) {
+      s = '#999999';
+    }
+    return new Color(int.parse(s.substring(1, 7), radix: 16) + 0xFF000000);
   }
-
-  String toHex({bool leadingHashSign = true}) => '${leadingHashSign ? '#' : ''}'
-      '${alpha.toRadixString(16).padLeft(2, '0')}'
-      '${red.toRadixString(16).padLeft(2, '0')}'
-      '${green.toRadixString(16).padLeft(2, '0')}'
-      '${blue.toRadixString(16).padLeft(2, '0')}';
 }
