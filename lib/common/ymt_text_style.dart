@@ -5,6 +5,11 @@ const TextStyle light_grey_12 = TextStyle(
     color: Color(0xFFa9acb1),
 );
 
+const TextStyle light_grey_13 = TextStyle(
+    fontSize: 13,
+    color: Color(0xFFa9acb1),
+);
+
 const TextStyle white_11 = TextStyle(
     fontSize: 11,
     color: Colors.white,
@@ -13,6 +18,12 @@ const TextStyle white_11 = TextStyle(
 const TextStyle white_10 = TextStyle(
     fontSize: 10,
     color: Colors.white,
+);
+
+const TextStyle white_13_w600 = TextStyle(
+    fontSize: 13,
+    color: Colors.white,
+    fontWeight: FontWeight.w600
 );
 
 const TextStyle black54_11 = TextStyle(

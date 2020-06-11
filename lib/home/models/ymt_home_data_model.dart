@@ -3,8 +3,9 @@ class YMTHomeDataModel {
   final Banner banner;
   final NewComer newComer;
   final List<SubChannel> subChannel;
+  final List<Advertisement> advertisement;
 
-  YMTHomeDataModel({this.ab, this.banner, this.newComer, this.subChannel});
+  YMTHomeDataModel({this.ab, this.banner, this.newComer, this.subChannel, this.advertisement});
 
   factory YMTHomeDataModel.fromJson(Map<String, dynamic> json) {
     Ab ab = Ab.fromJson(json['ab']);
@@ -16,11 +17,18 @@ class YMTHomeDataModel {
         subChannel.add(SubChannel.fromJson(v));
       });
     }
+    List<Advertisement> advertisement = List<Advertisement>();
+    if (json['advertisement'] != null) {
+      (json['advertisement'] as List).forEach((v) {
+        advertisement.add(Advertisement.fromJson(v));
+      });
+    }
     return YMTHomeDataModel(
       ab: ab,
       banner: banner,
       newComer: newComer,
-      subChannel: subChannel
+      subChannel: subChannel,
+      advertisement: advertisement
     );
   }
 }
@@ -247,18 +255,23 @@ class SubChannel {
   final String url;
   final int id;
 
-  SubChannel({
-    this.name,
-    this.pic,
-    this.type,
-    this.url,
-    this.id
-  });
-
   SubChannel.fromJson(Map<String, dynamic> json) 
     : name = json['name'],
       pic = json['pic'],
       type = json['type'],
       url = json['url'],
       id = json['id'];
+}
+
+class Advertisement {
+  final int height;
+  final String picUrl;
+  final String url;
+  final int type;
+
+  Advertisement.fromJson(Map<String, dynamic> json) 
+    : height = json['height'],
+      picUrl = json['picUrl'],
+      type = json['type'],
+      url = json['url'];
 }

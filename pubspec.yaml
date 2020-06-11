@@ -75,6 +75,7 @@ flutter:
     - assets/home_newbie_welfare/home_newbie_welfare_icon1.png
     - assets/home_newbie_welfare/home_newbie_welfare_icon2.png
     - assets/home_newbie_welfare/home_newbie_welfare_icon3.png
+    - assets/home_body/arrow_right_20x20.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -8,6 +8,7 @@ import 'package:ymatou/home/blocs/ymt_home_data_bloc.dart';
 import 'package:ymatou/home/models/ymt_home_data_model.dart';
 import 'package:ymatou/home/pages/ymt_home_search_page.dart';
 import 'package:ymatou/home/states/ymt_home_data_state.dart';
+import 'package:ymatou/home/widgets/ymt_flash_sale_widget.dart';
 
 import 'package:ymatou/home/widgets/ymt_home_banner.dart';
 import 'package:ymatou/home/widgets/ymt_home_benefits_widget.dart';
@@ -84,6 +85,8 @@ class _YMTHomePageState extends State<YMTHomePage> {
                       YMTHomeBanner(bannerList: homeModel.banner.bannerList),
                       YMTHomeCategory(categoryList: homeModel.subChannel,),
                       YMTHomeBenefitsWidget(),
+                      Image.network(homeModel.advertisement.first.picUrl),
+                      YMTFlashSaleWidget(),
                     ]
                   ),
                   bottomNavigationBar: BlocBuilder<YMTTabBarBloc, int>(

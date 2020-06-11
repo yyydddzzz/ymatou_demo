@@ -54,7 +54,11 @@ class _YMTAppState extends State<YMTApp> {
           highlightColor: Colors.transparent,
           splashColor: Colors.transparent,
         ),
+        primaryTextTheme: TextTheme(
+          
+        ),
         // primarySwatch: Colors.red,
+        scaffoldBackgroundColor: Colors.white,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       routes: routes,

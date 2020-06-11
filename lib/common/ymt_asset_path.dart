@@ -19,3 +19,8 @@ const String ic_cart_delete = 'assets/home_search_bar/ic_cart_delete.png';
 const String home_newbie_welfare_icon1 = 'assets/home_newbie_welfare/home_newbie_welfare_icon1.png';
 const String home_newbie_welfare_icon2 = 'assets/home_newbie_welfare/home_newbie_welfare_icon2.png';
 const String home_newbie_welfare_icon3 = 'assets/home_newbie_welfare/home_newbie_welfare_icon3.png';
+
+//
+const String arrow_right = 'assets/home_body/arrow_right_20x20.png';
+
+
