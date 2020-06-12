@@ -17,17 +17,21 @@ class YMTLoginPage extends StatelessWidget {
                 Wrap(
                   spacing: 80,
                   children: <Widget>[
-                    GestureDetector(
-                      onTap: () {},
-                      child: Text(
-                        '快速登录',
-                        style: TextStyle(
-                          color: Colors.grey,
-                          decoration: TextDecoration.none,
-                          fontSize: 15,
-                          fontWeight: FontWeight.normal
+                    Column(
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: () {},
+                          child: Text(
+                            '快速登录',
+                            style: TextStyle(
+                              color: Colors.grey,
+                              decoration: TextDecoration.none,
+                              fontSize: 13,
+                              fontWeight: FontWeight.normal
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                     GestureDetector(
                       onTap: () {},
@@ -36,43 +40,97 @@ class YMTLoginPage extends StatelessWidget {
                         style: TextStyle(
                           color: Colors.grey,
                           decoration: TextDecoration.none,
-                          fontSize: 15,
+                          fontSize: 13,
                           fontWeight: FontWeight.normal
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: 16,),
+                SizedBox(height: 15,),
                 Container(
-                  width: MediaQuery.of(context).size.width - 60,
+                  width: 300,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                    border: Border.all(width: 1, color: Colors.grey),
+                    border: Border.all(width: 1, color: Color(0xffe6e6e6)),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                   child: Column(
                     children: <Widget>[
-                      TextField(
-                        decoration: InputDecoration(
-                          prefixIcon: Image.asset(ic_mobile, height: 25, width: 25),
-                          hintText: '手机号',
+                      Container(
+                        decoration: UnderlineTabIndicator(
+                          borderSide: BorderSide(width: 1, color: Color(0xffe6e6e6)),
+                          insets: EdgeInsets.only(left: 40, right: 12)
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.only(left: 12, top: 3, right: 15),
+                              child: Image.asset(ic_mobile),
+                            ),
+                            Container(
+                              width: 200,
+                              child: TextField(
+                                style: TextStyle(fontSize: 15),
+                                decoration: InputDecoration.collapsed(
+                                  hintText: '手机号',
+                                  hintStyle: TextStyle(fontSize: 13),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      TextField(
-                        decoration: InputDecoration(
-                          prefixIcon: Image.asset(ic_message, height: 25, width: 25),
-                          hintText: '短信验证码',
+                      Container(
+                        decoration: UnderlineTabIndicator(
+                          borderSide: BorderSide(width: 1, color: Color(0xffe6e6e6)),
+                          insets: EdgeInsets.only(left: 40, right: 12)
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.only(left: 12, top: 3, right: 12),
+                              child: Image.asset(ic_message),
+                            ),
+                            Expanded(
+                              child: TextField(
+                                style: TextStyle(fontSize: 15),
+                                decoration: InputDecoration.collapsed(
+                                  hintText: '短信验证码',
+                                  hintStyle: TextStyle(fontSize: 13),
+                                ),
+                              ),
+                            ),
+                            Container(
+                              height: 30,
+                              decoration: BoxDecoration(
+                                border: Border(left: BorderSide(width: 1, color: Color(0xffe6e6e6)))
+                              ),
+                              padding: EdgeInsets.only(left: 3),
+                              child: FlatButton(
+                                onPressed: () {},
+                                child: Text(
+                                  '获取验证码',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.black87
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                       ),
                       Container(
                         width: 300,
-                        padding: EdgeInsets.all(16),
+                        padding: EdgeInsets.only(left: 12, top: 8, right: 12, bottom: 8),
                         child: FlatButton(
-                          color: Colors.grey,
+                          color: Color(0xffe6e6e6),
                           onPressed: () {},
                           child: Text(
                             '登录',
-
+                            style: TextStyle(
+                              color: Colors.white
+                            ),
                           ),
                         ),
                       )
@@ -84,7 +142,8 @@ class YMTLoginPage extends StatelessWidget {
                   child: Text(
                     '注册账号',
                     style: TextStyle(
-                      decoration: TextDecoration.underline
+                      decoration: TextDecoration.underline,
+                      fontSize: 13
                     ),
                   ),
                 ),
@@ -94,11 +153,11 @@ class YMTLoginPage extends StatelessWidget {
                   style: TextStyle(
                     color: Colors.grey,
                     decoration: TextDecoration.none,
-                    fontSize: 15,
+                    fontSize: 12,
                     fontWeight: FontWeight.normal
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 16,),
                 Wrap(
                   spacing: 30,
                   children: <Widget>[
@@ -107,17 +166,23 @@ class YMTLoginPage extends StatelessWidget {
                     Image.asset(login_weixin),
                     Image.asset(login_ali),
                   ],
-                )
+                ),
               ],
             ),
           ),
           Positioned(
-            top: 30,
-            right: 30,
+            top: 120,
+            left: 106,
+            child: Image.asset(ic_login_indicator,),
+          ),
+          Positioned(
+            top: 25,
+            right: 8,
             child: FlatButton(
-              color: Colors.red,
-              onPressed: () {},
-              child: Icon(Icons.delete),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Image.asset(ic_prod_auth_dialog_delete, width: 15, height: 15,),
             ),
           ),
         ],

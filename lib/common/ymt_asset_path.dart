@@ -34,3 +34,4 @@ const String login_sina = 'assets/user_login/login_sina.png';
 const String login_qq = 'assets/user_login/login_qq.png';
 const String login_weixin = 'assets/user_login/login_weixin.png';
 const String login_ali = 'assets/user_login/login_ali.png';
+const String ic_prod_auth_dialog_delete = 'assets/user_login/ic_prod_auth_dialog_delete.png';
