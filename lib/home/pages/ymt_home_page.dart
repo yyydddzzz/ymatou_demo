@@ -32,7 +32,6 @@ class _YMTHomePageState extends State<YMTHomePage> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<YMTHomeDataBloc>(context).add(0);
   }
 
   @override
@@ -54,19 +53,19 @@ class _YMTHomePageState extends State<YMTHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<YMTHomeDataBloc, YMTHomeDataState>(
-      builder: (context, homeData) {
-        if (homeData is YMTHomeDataLoaded) {
-          YMTHomeDataModel homeModel = homeData.model;
-          BannerList item = homeModel.banner.bannerList.first;
-          return MultiBlocProvider(
-            providers: [
-              BlocProvider(
-                create: (context) => YMTHomeColorChangeBloc(color: item.backColor),
-              ),
-            ],
-            child: Scaffold(
-              body: Stack(
+    return Scaffold(
+      body: BlocBuilder<YMTHomeDataBloc, YMTHomeDataState>(
+        builder: (context, homeData) {
+          if (homeData is YMTHomeDataLoaded) {
+            YMTHomeDataModel homeModel = homeData.model;
+            BannerList item = homeModel.banner.bannerList.first;
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) => YMTHomeColorChangeBloc(color: item.backColor),
+                ),
+              ],
+              child: Stack(
                 children: <Widget>[
                   NotificationListener(
                     onNotification: (ScrollNotification notification) {
@@ -139,49 +138,49 @@ class _YMTHomePageState extends State<YMTHomePage> {
                   )
                 ],
               ),
-              bottomNavigationBar: BlocBuilder<YMTTabBarBloc, int>(
-                builder: (context, index) {
-                  return BottomNavigationBar(
-                    type: BottomNavigationBarType.fixed,
-                    currentIndex: index,
-                    onTap: (int index) {
-                      BlocProvider.of<YMTTabBarBloc>(context).add(index);
-                    },
-                    items: [
-                      BottomNavigationBarItem(
-                        title: Container(),
-                        icon: Image.asset(icon_tab_home),
-                        activeIcon: Image.asset(icon_tab_home_sel),
-                      ),
-                      BottomNavigationBarItem(
-                        title: Container(),
-                        icon: Image.asset(icon_tab_live),
-                        activeIcon: Image.asset(icon_tab_live_sel),
-                      ),
-                      BottomNavigationBarItem(
-                        title: Container(),
-                        icon: Image.asset(icon_tab_htq),
-                        activeIcon: Image.asset(icon_tab_htq_sel),
-                      ),
-                      BottomNavigationBarItem(
-                        title: Container(),
-                        icon: Image.asset(icon_tab_cart),
-                        activeIcon: Image.asset(icon_tab_cart_sel),
-                      ),
-                      BottomNavigationBarItem(
-                        title: Container(),
-                        icon: Image.asset(icon_tab_mine),
-                        activeIcon: Image.asset(icon_tab_mine_sel),
-                      ),
-                    ],
-                  );
-                }
-              )
-            ),
+            );
+          }
+          return Center();
+        }
+      ),
+      bottomNavigationBar: BlocBuilder<YMTTabBarBloc, int>(
+        builder: (context, index) {
+          return BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            currentIndex: index,
+            onTap: (int index) {
+              BlocProvider.of<YMTTabBarBloc>(context).add(index);
+            },
+            items: [
+              BottomNavigationBarItem(
+                title: Container(),
+                icon: Image.asset(icon_tab_home),
+                activeIcon: Image.asset(icon_tab_home_sel),
+              ),
+              BottomNavigationBarItem(
+                title: Container(),
+                icon: Image.asset(icon_tab_live),
+                activeIcon: Image.asset(icon_tab_live_sel),
+              ),
+              BottomNavigationBarItem(
+                title: Container(),
+                icon: Image.asset(icon_tab_htq),
+                activeIcon: Image.asset(icon_tab_htq_sel),
+              ),
+              BottomNavigationBarItem(
+                title: Container(),
+                icon: Image.asset(icon_tab_cart),
+                activeIcon: Image.asset(icon_tab_cart_sel),
+              ),
+              BottomNavigationBarItem(
+                title: Container(),
+                icon: Image.asset(icon_tab_mine),
+                activeIcon: Image.asset(icon_tab_mine_sel),
+              ),
+            ],
           );
         }
-        return Scaffold();
-      },
+      )
     );
   }
 }

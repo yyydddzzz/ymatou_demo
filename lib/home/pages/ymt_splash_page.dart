@@ -20,7 +20,6 @@ class _YMTSplashPageState extends State<YMTSplashPage> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<YMTAdBloc>(context).add(0);
   }
 
   @override

@@ -39,6 +39,8 @@ class _YMTAppState extends State<YMTApp> {
   @override
   void initState() {
     super.initState();
+    BlocProvider.of<YMTHomeDataBloc>(context).add(0);
+    BlocProvider.of<YMTAdBloc>(context).add(0);
     print(YMTDeviceInfo.deviceData['model']);
   }
 
