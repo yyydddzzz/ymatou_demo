@@ -23,4 +23,14 @@ const String home_newbie_welfare_icon3 = 'assets/home_newbie_welfare/home_newbie
 //
 const String arrow_right = 'assets/home_body/arrow_right_20x20.png';
 
-
+//
+const String ic_mobile = 'assets/user_login/ic_mobile.png';
+const String ic_message = 'assets/user_login/ic_message.png';
+const String login_user = 'assets/user_login/login_user.png';
+const String login_pass = 'assets/user_login/login_pass.png';
+const String ymt_one_key_login_icon = 'assets/user_login/ymt_one_key_login_icon.png';
+const String ic_login_indicator = 'assets/user_login/ic_login_indicator.png';
+const String login_sina = 'assets/user_login/login_sina.png';
+const String login_qq = 'assets/user_login/login_qq.png';
+const String login_weixin = 'assets/user_login/login_weixin.png';
+const String login_ali = 'assets/user_login/login_ali.png';

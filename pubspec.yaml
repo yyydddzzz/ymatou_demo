@@ -79,6 +79,17 @@ flutter:
     
     - assets/json/globalconfig.json
     - assets/json/home.json
+    
+    - assets/user_login/ic_mobile.png
+    - assets/user_login/ic_message.png
+    - assets/user_login/login_user.png
+    - assets/user_login/login_pass.png
+    - assets/user_login/ymt_one_key_login_icon.png
+    - assets/user_login/ic_login_indicator.png
+    - assets/user_login/login_sina.png
+    - assets/user_login/login_qq.png
+    - assets/user_login/login_weixin.png
+    - assets/user_login/login_ali.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

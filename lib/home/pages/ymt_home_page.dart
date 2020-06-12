@@ -102,7 +102,7 @@ class _YMTHomePageState extends State<YMTHomePage> {
                                 leading: FlatButton(
                                   child: Image.asset(ic_home_white_classify, color: Color.lerp(Colors.white, Colors.black, snapshot.data)),
                                   onPressed: () {
-                                    
+                                    Navigator.of(context).pushNamed('/home/login');
                                   },
                                 ),
                                 actions: <Widget>[

@@ -20,7 +20,6 @@ class _YMTBottomTabBarState extends State<YMTBottomTabBar> with AutomaticKeepAli
   @override
   void initState() {
     super.initState();
-    print('YMTHomePage');
     // Future.delayed(Duration(milliseconds: 100)).then((value) {
     //   Overlay.of(context).insert(_overlay);
     // });
@@ -28,7 +27,7 @@ class _YMTBottomTabBarState extends State<YMTBottomTabBar> with AutomaticKeepAli
 
   @override
   void dispose() {
-    _overlay.remove();
+    // _overlay.remove();
     super.dispose();
   }
 
