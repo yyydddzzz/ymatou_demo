@@ -17,6 +17,7 @@ import 'package:ymatou/home/widgets/ymt_home_category_widget.dart';
 
 import 'package:ymatou/common/ymt_asset_path.dart';
 import 'package:ymatou/common/ymt_text_style.dart';
+import 'package:ymatou/home/widgets/ymt_home_video_live_widget.dart';
 
 class YMTHomePage extends StatefulWidget {
   YMTHomePage({Key key}) : super(key: key);
@@ -83,6 +84,7 @@ class _YMTHomePageState extends State<YMTHomePage> {
                         YMTHomeBenefitsWidget(),
                         Image.network(homeModel.advertisement.first.picUrl),
                         YMTFlashSaleWidget(flashSale: homeModel.flashSale,),
+                        YMTHomeViewLiveWidget(),
                       ]
                     ),
                   ),

@@ -21,6 +21,9 @@ const String home_newbie_welfare_icon2 = 'assets/home_newbie_welfare/home_newbie
 const String home_newbie_welfare_icon3 = 'assets/home_newbie_welfare/home_newbie_welfare_icon3.png';
 
 //
+const String ic_living = 'assets/home_video_live/ic_living.gif';
+
+//
 const String arrow_right = 'assets/home_body/arrow_right_20x20.png';
 
 //

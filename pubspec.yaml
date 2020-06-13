@@ -77,6 +77,8 @@ flutter:
     - assets/home_newbie_welfare/home_newbie_welfare_icon3.png
     - assets/home_body/arrow_right_20x20.png
     
+    - assets/home_video_live/ic_living.gif
+    
     - assets/json/globalconfig.json
     - assets/json/home.json
     
