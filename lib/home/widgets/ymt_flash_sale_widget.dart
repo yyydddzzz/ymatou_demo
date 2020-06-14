@@ -71,7 +71,7 @@ class _FlashSaleTitleLabelState extends State<FlashSaleTitleLabel> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: 50,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

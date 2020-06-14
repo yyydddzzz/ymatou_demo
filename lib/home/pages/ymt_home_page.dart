@@ -5,10 +5,9 @@ import 'package:ymatou/common/ymt_hex_color.dart';
 
 import 'package:ymatou/common/bottom_tab_bar/blocs/ymt_tab_bar_bloc.dart';
 import 'package:ymatou/home/blocs/ymt_home_color_change_bloc.dart';
-import 'package:ymatou/home/blocs/ymt_home_data_bloc.dart';
+import 'package:ymatou/home/models/ymt_business_config_model.dart';
 import 'package:ymatou/home/models/ymt_home_data_model.dart';
 import 'package:ymatou/home/pages/ymt_home_search_page.dart';
-import 'package:ymatou/home/states/ymt_home_data_state.dart';
 import 'package:ymatou/home/widgets/ymt_flash_sale_widget.dart';
 
 import 'package:ymatou/home/widgets/ymt_home_banner.dart';
@@ -18,6 +17,8 @@ import 'package:ymatou/home/widgets/ymt_home_category_widget.dart';
 import 'package:ymatou/common/ymt_asset_path.dart';
 import 'package:ymatou/common/ymt_text_style.dart';
 import 'package:ymatou/home/widgets/ymt_home_video_live_widget.dart';
+
+import 'package:ymatou/home/repositories/ymt_home_repository.dart';
 
 class YMTHomePage extends StatefulWidget {
   YMTHomePage({Key key}) : super(key: key);
@@ -29,10 +30,12 @@ class YMTHomePage extends StatefulWidget {
 class _YMTHomePageState extends State<YMTHomePage> {
   final String _blanks = '                                                                                                ';
   StreamController<double> _appBarColorLerpCtl = StreamController<double>();
+  Future _homeDataFuture;
 
   @override
   void initState() {
     super.initState();
+    _homeDataFuture = YMTHomeRepository().fetchData();
   }
 
   @override
@@ -52,13 +55,22 @@ class _YMTHomePageState extends State<YMTHomePage> {
     _appBarColorLerpCtl.sink.add(appBarColorLerp);
   }
 
+  Widget _newHoneyQualityWidget(String url) {
+    return Container(
+      padding: EdgeInsets.only(left: 16, right: 16, top: 8, bottom: 8),
+      child: Image.network(url),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocBuilder<YMTHomeDataBloc, YMTHomeDataState>(
-        builder: (context, homeData) {
-          if (homeData is YMTHomeDataLoaded) {
-            YMTHomeDataModel homeModel = homeData.model;
+      body: FutureBuilder(
+        future: _homeDataFuture,
+        builder: (BuildContext context, AsyncSnapshot snapShot) {
+          if (snapShot.connectionState == ConnectionState.done) {
+            YMTHomeDataModel homeModel = snapShot.data['homeModel'];
+            YMTBusinessConfigModel businessConfigModel = snapShot.data['businessConfigModel'];
             BannerList item = homeModel.banner.bannerList.first;
             return MultiBlocProvider(
               providers: [
@@ -81,10 +93,11 @@ class _YMTHomePageState extends State<YMTHomePage> {
                       children: <Widget>[
                         YMTHomeBanner(bannerList: homeModel.banner.bannerList),
                         YMTHomeCategory(categoryList: homeModel.subChannel,),
-                        YMTHomeBenefitsWidget(),
+                        _newHoneyQualityWidget(businessConfigModel.configs.newHoneyQualityUrl),
+                        YMTHomeBenefitsWidget(newComer: homeModel.newComer),
                         Image.network(homeModel.advertisement.first.picUrl),
                         YMTFlashSaleWidget(flashSale: homeModel.flashSale,),
-                        YMTHomeViewLiveWidget(),
+                        YMTHomeViewLiveWidget(videoLive: homeModel.videoLive,),
                       ]
                     ),
                   ),

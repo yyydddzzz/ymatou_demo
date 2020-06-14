@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cache_image/cache_image.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:ymatou/home/models/ymt_home_data_model.dart';
 import 'package:ymatou/home/widgets/ymt_home_hot_search_widget.dart';

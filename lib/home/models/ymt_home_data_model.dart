@@ -5,8 +5,9 @@ class YMTHomeDataModel {
   final List<SubChannel> subChannel;
   final List<Advertisement> advertisement;
   final FlashSale flashSale;
+  final VideoLive videoLive;
 
-  YMTHomeDataModel({this.ab, this.banner, this.newComer, this.subChannel, this.advertisement, this.flashSale});
+  YMTHomeDataModel({this.ab, this.banner, this.newComer, this.subChannel, this.advertisement, this.flashSale, this.videoLive});
 
   factory YMTHomeDataModel.fromJson(Map<String, dynamic> json) {
     Ab ab = Ab.fromJson(json['ab']);
@@ -25,13 +26,15 @@ class YMTHomeDataModel {
       });
     }
     FlashSale flashSale = FlashSale.fromJson(json['flashSale']);
+    VideoLive videoLive = VideoLive.fromJson(json['videoLive']);
     return YMTHomeDataModel(
       ab: ab,
       banner: banner,
       newComer: newComer,
       subChannel: subChannel,
       advertisement: advertisement,
-      flashSale: flashSale
+      flashSale: flashSale,
+      videoLive: videoLive,
     );
   }
 }
@@ -159,7 +162,7 @@ class BannerList {
 
 class NewComer {
   final MainBanner mainBanner;
-  final List<Banner> banner;
+  final List<BannerItem> banner;
   final String url;
   final String icon;
   final bool received;
@@ -182,10 +185,10 @@ class NewComer {
     MainBanner mainBanner = json['mainBanner'] != null
         ? MainBanner.fromJson(json['mainBanner'])
         : null;
-    List<Banner> banner = List<Banner>();
+    List<BannerItem> banner = List<BannerItem>();
     if (json['banner'] != null) {
       json['banner'].forEach((v) {
-        banner.add(Banner.fromJson(v));
+        banner.add(BannerItem.fromJson(v));
       });
     }
     String url = json['url'];
@@ -204,23 +207,6 @@ class NewComer {
       bannerModule: bannerModule,
       exBanner: exBanner
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = Map<String, dynamic>();
-    if (this.mainBanner != null) {
-      data['mainBanner'] = this.mainBanner.toJson();
-    }
-    if (this.banner != null) {
-      data['banner'] = this.banner.map((v) => v.toJson()).toList();
-    }
-    data['url'] = this.url;
-    data['icon'] = this.icon;
-    data['received'] = this.received;
-    data['userType'] = this.userType;
-    data['bannerModule'] = this.bannerModule;
-    data['exBanner'] = this.exBanner;
-    return data;
   }
 }
 
@@ -249,6 +235,36 @@ class MainBanner {
     data['url'] = this.url;
     return data;
   }
+}
+
+class BannerItem {
+  int height;
+  List<NewComerBannerList> bannerList;
+  int rowId;
+
+  BannerItem({this.height, this.bannerList, this.rowId});
+
+  BannerItem.fromJson(Map<String, dynamic> json) {
+    height = json['height'];
+    if (json['bannerList'] != null) {
+      bannerList = new List<NewComerBannerList>();
+      json['bannerList'].forEach((v) {
+        bannerList.add(new NewComerBannerList.fromJson(v));
+      });
+    }
+    rowId = json['rowId'];
+  }
+}
+
+class NewComerBannerList {
+  final int height;
+  final String picUrl;
+  final String url;
+
+  NewComerBannerList.fromJson(Map<String, dynamic> json) 
+    : height = json['height'],
+      picUrl = json['picUrl'],
+      url = json['url'];
 }
 
 class SubChannel {
@@ -362,5 +378,130 @@ class Panic {
     tradingSpecial = json['tradingSpecial'];
     name = json['name'];
     activityName = json['activityName'];
+  }
+}
+
+class VideoLive {
+  List<VideoLiveItem> list;
+  String url;
+  Null productList;
+  int tabId;
+
+  VideoLive({this.list, this.url, this.productList, this.tabId});
+
+  VideoLive.fromJson(Map<String, dynamic> json) {
+    if (json['list'] != null) {
+      list = List<VideoLiveItem>();
+      json['list'].forEach((v) {
+        list.add(VideoLiveItem.fromJson(v));
+      });
+    }
+    url = json['url'];
+    productList = json['productList'];
+    tabId = json['tabId'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    if (this.list != null) {
+      data['list'] = this.list.map((v) => v.toJson()).toList();
+    }
+    data['url'] = this.url;
+    data['productList'] = this.productList;
+    data['tabId'] = this.tabId;
+    return data;
+  }
+}
+
+class VideoLiveItem {
+  String countryName;
+  int liveId;
+  String picUrl;
+  int preViewNum;
+  int viewNum;
+  int sellerId;
+  int status;
+  String title;
+  String startTimeDesc;
+  String avatar;
+  String name;
+  int seckillState;
+  Product product;
+
+  VideoLiveItem(
+      {this.countryName,
+      this.liveId,
+      this.picUrl,
+      this.preViewNum,
+      this.viewNum,
+      this.sellerId,
+      this.status,
+      this.title,
+      this.startTimeDesc,
+      this.avatar,
+      this.name,
+      this.seckillState,
+      this.product});
+
+  VideoLiveItem.fromJson(Map<String, dynamic> json) {
+    countryName = json['countryName'];
+    liveId = json['liveId'];
+    picUrl = json['picUrl'];
+    preViewNum = json['preViewNum'];
+    viewNum = json['viewNum'];
+    sellerId = json['sellerId'];
+    status = json['status'];
+    title = json['title'];
+    startTimeDesc = json['startTimeDesc'];
+    avatar = json['avatar'];
+    name = json['name'];
+    seckillState = json['seckillState'];
+    product =
+        json['product'] != null ? Product.fromJson(json['product']) : null;
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['countryName'] = this.countryName;
+    data['liveId'] = this.liveId;
+    data['picUrl'] = this.picUrl;
+    data['preViewNum'] = this.preViewNum;
+    data['viewNum'] = this.viewNum;
+    data['sellerId'] = this.sellerId;
+    data['status'] = this.status;
+    data['title'] = this.title;
+    data['startTimeDesc'] = this.startTimeDesc;
+    data['avatar'] = this.avatar;
+    data['name'] = this.name;
+    data['seckillState'] = this.seckillState;
+    if (this.product != null) {
+      data['product'] = this.product.toJson();
+    }
+    return data;
+  }
+}
+
+class Product {
+  String pic;
+  String id;
+  int price;
+  int seckillState;
+
+  Product({this.pic, this.id, this.price, this.seckillState});
+
+  Product.fromJson(Map<String, dynamic> json) {
+    pic = json['pic'];
+    id = json['id'];
+    price = json['price'];
+    seckillState = json['seckillState'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['pic'] = this.pic;
+    data['id'] = this.id;
+    data['price'] = this.price;
+    data['seckillState'] = this.seckillState;
+    return data;
   }
 }

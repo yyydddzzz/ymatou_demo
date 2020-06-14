@@ -1,14 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:ymatou/common/ymt_asset_path.dart';
 import 'package:ymatou/common/ymt_text_style.dart';
+import 'package:ymatou/home/models/ymt_home_data_model.dart';
 
 class YMTHomeViewLiveWidget extends StatelessWidget {
+  final VideoLive videoLive;
+  YMTHomeViewLiveWidget({@required this.videoLive});
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: <Widget>[
-          VideoLiveGridView(),
+          VideoLiveTitleLabel(),
+          VideoLiveGridView(videoLiveList: videoLive.list,),
+        ],
+      ),
+    );
+  }
+}
+
+class VideoLiveTitleLabel extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(left: 12, right: 12),
+      height: 60,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                '海淘直播',
+                style: black_18_w600,
+              ),
+              FlatButton(
+                child: Image.network('https://pic1.ymatou.com/G02/M01/E8/5A/CgzUCl01LiaAR-HYAABSlQMrQXA551_33_4_o.png', height: 22),
+                onPressed: () {},
+              )
+            ],
+          ),
+          GestureDetector(
+            onTap: () {  },
+            child: Row(
+              children: <Widget>[
+                Text(
+                  '更多',
+                  style: light_grey_12,
+                ),
+                Image.asset(arrow_right),
+              ],
+            ),
+          )
         ],
       ),
     );
@@ -16,6 +59,8 @@ class YMTHomeViewLiveWidget extends StatelessWidget {
 }
 
 class VideoLiveGridView extends StatelessWidget {
+  final List<VideoLiveItem> videoLiveList;
+  VideoLiveGridView({@required this.videoLiveList});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,9 +74,9 @@ class VideoLiveGridView extends StatelessWidget {
           mainAxisSpacing: 6,
           childAspectRatio: 3 / 2,
         ),
-        itemCount: 15,
+        itemCount: videoLiveList.length,
         itemBuilder: (context, index) {
-          return VideoLiveItemWidget();
+          return VideoLiveItemWidget(videoLiveItem: videoLiveList[index]);
         },
       ),
     );
@@ -39,9 +84,10 @@ class VideoLiveGridView extends StatelessWidget {
 }
 
 class VideoLiveItemWidget extends StatelessWidget {
+  final VideoLiveItem videoLiveItem;
+  VideoLiveItemWidget({@required this.videoLiveItem});
   @override
   Widget build(BuildContext context) {
-
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
@@ -52,7 +98,7 @@ class VideoLiveItemWidget extends StatelessWidget {
         children: <Widget>[
           Column(
             children: <Widget>[
-              Image.network('http://pic1.ymatou.com/G03/M08/C6/13/CgzUIF7e7xqAJNn0AAyAoqsoEug870_169_225_o.jpg', width: 120, height: 120, fit: BoxFit.cover,),
+              Image.network(videoLiveItem.picUrl, width: 120, height: 120, fit: BoxFit.cover,),
               Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -60,15 +106,15 @@ class VideoLiveItemWidget extends StatelessWidget {
                     Container(
                       padding: EdgeInsets.only(left: 48, top: 2),
                       child: Text(
-                        '¥16488',
+                        '¥${videoLiveItem?.product?.price}',
                         style: white_12_w600,
                       ),
                     ),
-                    SizedBox(height: 4,),
+                    SizedBox(height: 3,),
                     Container(
                       padding: EdgeInsets.only(left: 6, right: 6),
                       child: Text(
-                        '日本丨🉐️中古当铺首饰大直播',
+                        '${videoLiveItem.countryName}丨${videoLiveItem.title}',
                         style: white_12_w600,
                         maxLines: 2,
                       ),
@@ -100,7 +146,7 @@ class VideoLiveItemWidget extends StatelessWidget {
                 border: Border.all(width: 1, color: Colors.white),
                 borderRadius: BorderRadius.circular(4),
                 image: DecorationImage(
-                  image: NetworkImage('http://pic1.ymatou.com/G03/shangou/M01/4F/AC/CgzUFV6fnA2AY7-zAANzrIBR-WI211_667_500_n_w_lb.jpg'),
+                  image: NetworkImage(videoLiveItem?.product?.pic ?? ''),
                 )
               ),
               width: 36,
@@ -121,7 +167,7 @@ class VideoLiveItemWidget extends StatelessWidget {
                 Image.asset(ic_living),
                 SizedBox(width: 3,),
                 Text(
-                  '6948人',
+                  '${videoLiveItem.viewNum}人',
                   style: white_12_w600,
                 ),
               ],

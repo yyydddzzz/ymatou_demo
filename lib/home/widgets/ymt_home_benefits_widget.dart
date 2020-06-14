@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:ymatou/common/ymt_text_style.dart';
 import 'package:ymatou/common/ymt_asset_path.dart';
+import 'package:ymatou/home/models/ymt_home_data_model.dart';
 
 class YMTHomeBenefitsWidget extends StatelessWidget {
+  final NewComer newComer;
+
+  YMTHomeBenefitsWidget({@required this.newComer});
+
+  Widget _newComerBannerView(BuildContext context) {
+    List<Widget> bannerView = <Widget>[Image.network(newComer.mainBanner.picUrl)];
+    for (BannerItem bannerItem in newComer.banner) {
+      List<Widget> itemList = <Widget>[];
+      for (NewComerBannerList item in bannerItem.bannerList) {
+        itemList.add(Container(
+          width: MediaQuery.of(context).size.width / bannerItem.bannerList.length,
+          child: Image.network(item.picUrl),
+        ));
+      }
+      bannerView.add(Row(children: itemList,));
+    }
+    return Column(children: bannerView,);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.only(left: 12, right: 12, top: 8, bottom: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
@@ -50,35 +70,7 @@ class YMTHomeBenefitsWidget extends StatelessWidget {
               ],
             ),
           ),
-          Image.network('http://pic1.ymatou.com/G03/M05/43/44/CgzUH17KbGWAO5ZkAAChp229VYw422_750_91_o.png'),
-          Row(
-            children: <Widget>[
-              Container(
-                width: MediaQuery.of(context).size.width / 3,
-                child: Image.network('http://pic1.ymatou.com/G03/M03/43/42/CgzUIV7KbKmAb-hcAABBiXXoOtw759_50_41_o.png'),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 3,
-                child: Image.network('http://pic1.ymatou.com/G03/M03/43/43/CgzUIV7KbKyAbC7GAABHicFMp90747_50_41_o.png'),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 3,
-                child: Image.network('http://pic1.ymatou.com/G03/M03/43/43/CgzUIV7KbLCAUM9EAABXOsr1SzQ101_50_41_o.gif'),
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Container(
-                width: MediaQuery.of(context).size.width / 2,
-                child: Image.network('http://pic1.ymatou.com/G03/M05/17/5C/CgzUIV7UgMqAIyRZAABiL3-HL10860_375_236_o.gif'),
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width / 2,
-                child: Image.network('http://pic1.ymatou.com/G03/M03/43/29/CgzUH17XH42AD_rgAAFFNQiNGqM392_375_236_o.gif'),
-              ),
-            ],
-          ),
+          _newComerBannerView(context),
         ],
       ),
     );

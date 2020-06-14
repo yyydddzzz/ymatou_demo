@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:rxdart/rxdart.dart';
 import '../../common/ymt_asset_path.dart';
 import '../../common/ymt_text_style.dart';
 

@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  cache_image: "^1.0.5"
   event_bus: ^1.1.1
   bloc: ^4.0.0
   flutter_bloc: ^4.0.0
@@ -81,6 +82,7 @@ flutter:
     
     - assets/json/globalconfig.json
     - assets/json/home.json
+    - assets/json/businessconfiglist.json
     
     - assets/user_login/ic_mobile.png
     - assets/user_login/ic_message.png

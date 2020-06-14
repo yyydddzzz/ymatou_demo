@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ymatou/home/blocs/ymt_splash_bloc.dart';
-import 'package:ymatou/home/blocs/ymt_home_data_bloc.dart';
 import 'package:ymatou/common/ymt_bloc_delegate.dart';
 
 import 'package:ymatou/common/ymt_device_info.dart';
@@ -18,9 +17,6 @@ void main() async {
         BlocProvider(
           create: (context) => YMTAdBloc(),
         ),
-        BlocProvider(
-          create: (context) => YMTHomeDataBloc(),
-        )
       ],
       child: YMTApp(),
     )
@@ -39,7 +35,6 @@ class _YMTAppState extends State<YMTApp> {
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<YMTHomeDataBloc>(context).add(0);
     BlocProvider.of<YMTAdBloc>(context).add(0);
     print(YMTDeviceInfo.deviceData['model']);
   }
