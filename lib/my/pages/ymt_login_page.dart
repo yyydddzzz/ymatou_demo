@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../../common/ymt_asset_path.dart';
 import '../../common/ymt_text_style.dart';
+import 'package:ymatou/common/ymt_images_animation.dart';
 
 enum YMTLoginFieldType {
   Message,
@@ -241,6 +242,7 @@ class _YMTLoginPageState extends State<YMTLoginPage> {
               child: Image.asset(ic_prod_auth_dialog_delete, width: 15, height: 15,),
             ),
           ),
+          ImagesAnimation(w: 167, h: 70, entry: ImagesAnimationEntry(0, 7, normal_refresh)),
         ],
       ),
     );

@@ -23,8 +23,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cache_image: "^1.0.5"
-  event_bus: ^1.1.1
   bloc: ^4.0.0
   flutter_bloc: ^4.0.0
   rxdart: ^0.24.1
@@ -34,6 +32,9 @@ dependencies:
   equatable: ^1.2.0
   device_info: ^0.4.2+4
   shared_preferences: ^0.5.7+3
+  pull_to_refresh: ^1.5.8
+  cached_network_image: ^2.2.0+1
+  sprintf: ^4.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -83,6 +84,15 @@ flutter:
     - assets/json/globalconfig.json
     - assets/json/home.json
     - assets/json/businessconfiglist.json
+    
+    - assets/refresh/normal_refresh_00.png
+    - assets/refresh/normal_refresh_01.png
+    - assets/refresh/normal_refresh_02.png
+    - assets/refresh/normal_refresh_03.png
+    - assets/refresh/normal_refresh_04.png
+    - assets/refresh/normal_refresh_05.png
+    - assets/refresh/normal_refresh_06.png
+    - assets/refresh/normal_refresh_07.png
     
     - assets/user_login/ic_mobile.png
     - assets/user_login/ic_message.png
