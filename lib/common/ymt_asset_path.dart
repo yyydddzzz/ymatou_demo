@@ -27,6 +27,7 @@ const String ic_living = 'assets/home_video_live/ic_living.gif';
 const String arrow_right = 'assets/home_body/arrow_right_20x20.png';
 
 //
+const String normal_refresh0 = 'assets/refresh/normal_refresh_00.png';
 const String normal_refresh = 'assets/refresh/normal_refresh_0%s.png';
 
 //

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:sprintf/sprintf.dart';
 
 class ImagesAnimation extends StatefulWidget {
-
+  final EdgeInsetsGeometry padding;
   final double w;
   final double h;
   final ImagesAnimationEntry entry;
   final int durationSeconds;
 
-  ImagesAnimation({Key key, this.w : 80, this.h : 80, this.entry, this.durationSeconds : 2}):super(key:key);
+  ImagesAnimation({Key key, this.w : 80, this.h : 80, this.padding, this.entry, this.durationSeconds : 2}):super(key:key);
 
 
   @override
@@ -31,16 +31,26 @@ class _InState extends State<ImagesAnimation> with TickerProviderStateMixin{
   }
 
   @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return new AnimatedBuilder(
       animation: _animation,
       builder: (BuildContext context, Widget child) {
         String frame = _animation.value.toString();
-        return new Image.asset(
-          sprintf(widget.entry.basePath, [frame]),
-          gaplessPlayback: true, 
-          width: widget.w,
-          height: widget.h,
+        return Padding(
+          padding: widget.padding ?? EdgeInsets.zero,
+          child: Image.asset(
+            sprintf(widget.entry.basePath, [frame]),
+            gaplessPlayback: true, 
+            width: widget.w,
+            height: widget.h,
+            fit: BoxFit.fitHeight,
+          ),
         );
       },
     );

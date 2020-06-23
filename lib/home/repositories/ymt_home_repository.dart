@@ -6,7 +6,7 @@ import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
 class YMTHomeRepository {
-  Future fetchData() async {
+  Future<Map> fetchData() async {
     // final path = '/nodehome/home';
     // final String modules = '1001,1030,1027,1031,1020,1005,1024,1028,1032,1033,1026,1010';
     // final Map<String, dynamic> query = {'requestAB': 1, 'modules': modules};

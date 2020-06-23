@@ -64,17 +64,16 @@ class VideoLiveGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 12, right: 0),
-      height: 370,
+      padding: EdgeInsets.only(left: 12, right: 12),
+      height: 180,
       child: GridView.builder(
         scrollDirection: Axis.horizontal,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 12,
+          crossAxisCount: 1,
           mainAxisSpacing: 6,
           childAspectRatio: 3 / 2,
         ),
-        itemCount: videoLiveList.length,
+        itemCount: 6,
         itemBuilder: (context, index) {
           return VideoLiveItemWidget(videoLiveItem: videoLiveList[index]);
         },

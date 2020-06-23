@@ -84,6 +84,7 @@ flutter:
     - assets/json/globalconfig.json
     - assets/json/home.json
     - assets/json/businessconfiglist.json
+    - assets/json/homeprod.json
     
     - assets/refresh/normal_refresh_00.png
     - assets/refresh/normal_refresh_01.png
