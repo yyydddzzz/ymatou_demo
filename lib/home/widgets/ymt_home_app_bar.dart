@@ -46,7 +46,7 @@ class _YMTHomeAppBarState extends State<YMTHomeAppBar> {
                       child: FlatButton(
                         child: Image.asset(ic_home_white_msg, color: Color.lerp(Colors.white, Colors.black, snapshot.data)),
                         onPressed: () {
-                          
+
                         },
                       )
                     )

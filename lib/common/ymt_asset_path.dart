@@ -27,6 +27,9 @@ const String ic_living = 'assets/home_video_live/ic_living.gif';
 const String arrow_right = 'assets/home_body/arrow_right_20x20.png';
 
 //
+const String ic_guess_like_title = 'assets/home_guess/ic_guess_like_title.png';
+
+//
 const String normal_refresh0 = 'assets/refresh/normal_refresh_00.png';
 const String normal_refresh = 'assets/refresh/normal_refresh_0%s.png';
 
@@ -42,3 +45,5 @@ const String login_qq = 'assets/user_login/login_qq.png';
 const String login_weixin = 'assets/user_login/login_weixin.png';
 const String login_ali = 'assets/user_login/login_ali.png';
 const String ic_prod_auth_dialog_delete = 'assets/user_login/ic_prod_auth_dialog_delete.png';
+
+

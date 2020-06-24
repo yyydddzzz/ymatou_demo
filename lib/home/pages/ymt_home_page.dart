@@ -9,6 +9,9 @@ import 'package:ymatou/common/ymt_images_animation.dart';
 import 'package:ymatou/home/blocs/ymt_home_color_change_bloc.dart';
 import 'package:ymatou/home/models/ymt_business_config_model.dart';
 import 'package:ymatou/home/models/ymt_home_data_model.dart';
+import 'package:ymatou/home/widgets/guess/ymt_home_guess_widget.dart';
+import 'package:ymatou/home/widgets/guess/ymt_home_prod_type1_widget.dart';
+import 'package:ymatou/home/widgets/guess/ymt_home_prod_type2_widget.dart';
 import 'package:ymatou/home/widgets/ymt_flash_sale_widget.dart';
 import 'package:ymatou/home/widgets/ymt_home_app_bar.dart';
 
@@ -128,6 +131,7 @@ class _YMTHomePageState extends State<YMTHomePage> {
                               Image.network(homeModel.advertisement.first.picUrl),
                               YMTFlashSaleWidget(flashSale: homeModel.flashSale,),
                               YMTHomeViewLiveWidget(videoLive: homeModel.videoLive,),
+                              YMTHomeGuessWidget(),
                             ]
                           ),
                         ),

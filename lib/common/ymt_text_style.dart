@@ -15,6 +15,16 @@ const TextStyle white_11 = TextStyle(
     color: Colors.white,
 );
 
+const TextStyle white_12 = TextStyle(
+    fontSize: 12,
+    color: Colors.white,
+);
+
+const TextStyle white_13 = TextStyle(
+    fontSize: 13,
+    color: Colors.white,
+);
+
 const TextStyle white_10 = TextStyle(
     fontSize: 10,
     color: Colors.white,
@@ -26,6 +36,12 @@ const TextStyle white_12_w600 = TextStyle(
     fontWeight: FontWeight.w600
 );
 
+const TextStyle white_14 = TextStyle(
+    fontSize: 14,
+    color: Colors.white,
+    fontWeight: FontWeight.normal
+);
+
 const TextStyle black54_11 = TextStyle(
     fontSize: 11,
     color: Colors.black54,
@@ -34,6 +50,12 @@ const TextStyle black54_11 = TextStyle(
 const TextStyle black87_13 = TextStyle(
     fontSize: 13,
     color: Colors.black87,
+);
+
+const TextStyle black87_15 = TextStyle(
+    fontSize: 15,
+    color: Colors.black87,
+    fontWeight: FontWeight.bold
 );
 
 const TextStyle black_18_w600 = TextStyle(

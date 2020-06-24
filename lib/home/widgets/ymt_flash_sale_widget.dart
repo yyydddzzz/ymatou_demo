@@ -158,7 +158,7 @@ class FlashSaleItemView extends StatelessWidget {
         itemBuilder: (context, index) {
           Panic item = panic[index];
           return GestureDetector(
-            onTap: () {print('object');},
+            onTap: () {},
             child: Container(
               width: 76,
               child: Wrap(
@@ -190,11 +190,15 @@ class FlashSaleItemView extends StatelessWidget {
                         width: 12, 
                         height: 12,
                       ),
-                      SizedBox(width: 6),
-                      Text(
-                        item.brandName,
-                        style: TextStyle(fontSize: 12, color: Color(0xff676767)),
-                      ),
+                      SizedBox(width: 4),
+                      Container(
+                        width: 60,
+                        child: Text(
+                          item.brandName,
+                          style: TextStyle(fontSize: 12, color: Color(0xff676767)),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      )
                     ],
                   ),
                   Container(
